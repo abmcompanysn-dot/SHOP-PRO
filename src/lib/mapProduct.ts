@@ -47,7 +47,11 @@ export function mapProduct(p: ApiProduct): Listing {
     id: p.id,
     name: p.name,
     kind: normalizeKind(p.category),
-    price: typeof p.price === "number" && p.price > 0 ? p.price : null,
+    // sur_devis prime sur le prix numérique : le backend refuse price <= 0
+    // à la création (voir internal/catalog/products.go), donc un produit
+    // "sur devis" est forcément enregistré avec un prix symbolique non nul
+    // — c'est l'attribut qui fait foi, pas la valeur de price elle-même.
+    price: attrs.sur_devis || !(typeof p.price === "number" && p.price > 0) ? null : p.price,
     image,
     objectPos: attrs.objectPos,
     description: p.description || attrs.summary || p.name,
