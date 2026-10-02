@@ -118,14 +118,14 @@ export default function Home() {
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&q=80"
-                alt="Tenue de travaux pratiques personnalisée"
+                src="/images/realisation-tenue-tp-atelier.jpg"
+                alt="Tenue de travaux pratiques personnalisée, en situation d'atelier"
                 className="aspect-[3/4] translate-y-6 rounded-[10px] object-cover ring-1 ring-ice-100/10"
                 loading="eager"
               />
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80"
-                alt="Uniforme d'établissement bleu marine et blanc"
+                src="/images/produit-pack-blouson.jpg"
+                alt="Pack blouson personnalisé, logo d'établissement bleu marine et blanc"
                 className="aspect-[3/4] rounded-[10px] object-cover ring-1 ring-ice-100/10"
                 loading="eager"
               />

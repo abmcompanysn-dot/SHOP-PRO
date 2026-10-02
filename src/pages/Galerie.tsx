@@ -1,8 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
 import { listGallery, type GalleryItem } from "../services/abmcy";
+import { FALLBACK_GALLERY } from "../data/catalog";
 import { Reveal } from "../components/Reveal";
 import ShareMenu from "../components/ShareMenu";
 import { IconChevron, IconClose } from "../components/Icons";
+
+/** Même repli que FALLBACK_PRODUCTS (voir data/catalog.ts) : tant que le
+ * vrai tenant backend n'existe pas, on affiche de vraies photos SHOP PRO
+ * plutôt qu'une galerie vide. */
+const FALLBACK_ITEMS: GalleryItem[] = FALLBACK_GALLERY.map((g) => ({
+  id: g.id,
+  title: g.caption,
+  category: "realisation",
+  image_url: g.image,
+}));
 
 const CATEGORY_LABEL: Record<string, string> = {
   tp: "Tenues de TP",
@@ -30,9 +41,9 @@ export default function Galerie() {
     async function load() {
       try {
         const data = await listGallery();
-        if (!cancelled) setItems(data);
+        if (!cancelled) setItems(data.length > 0 ? data : FALLBACK_ITEMS);
       } catch {
-        if (!cancelled) setItems([]);
+        if (!cancelled) setItems(FALLBACK_ITEMS);
       } finally {
         if (!cancelled) setLoading(false);
       }

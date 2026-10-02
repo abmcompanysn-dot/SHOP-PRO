@@ -48,8 +48,9 @@ export const SUGGESTED_COLORS = [
 /**
  * Produits de référence donnés par le client (section "Produits" du cahier
  * des charges) — prix affichés quand connus, "Sur devis" sinon. Images :
- * visuels génériques libres de droit en attendant les vraies photos SHOP
- * PRO (à uploader depuis le dashboard tenant une fois le compte créé).
+ * vraies photos de réalisations SHOP PRO fournies par le client
+ * (public/images/), en attendant que le vrai catalogue soit géré depuis
+ * le dashboard tenant une fois le compte backend créé.
  */
 export const FALLBACK_PRODUCTS: Listing[] = [
   {
@@ -57,7 +58,7 @@ export const FALLBACK_PRODUCTS: Listing[] = [
     name: "Tenue de TP personnalisée",
     kind: "tp",
     price: 16000,
-    image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=900&q=80",
+    image: "/images/produit-tenue-tp-pliee.jpg",
     description:
       "Tenue de travaux pratiques robuste, personnalisable avec le logo, le nom et la filière de l'élève ou de l'étudiant. Idéale pour les centres de formation professionnelle, lycées techniques et établissements universitaires.",
     sizes: SIZES,
@@ -69,7 +70,7 @@ export const FALLBACK_PRODUCTS: Listing[] = [
     name: "Pack habillement blouson (5 pièces)",
     kind: "blouson",
     price: 25000,
-    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=900&q=80",
+    image: "/images/produit-pack-blouson.jpg",
     description:
       "Pack complet de 5 pièces d'habillement en blouson, personnalisable aux couleurs et au logo de votre établissement ou de votre promotion. Tarif de groupe disponible sur devis au-delà de 10 pièces.",
     sizes: SIZES,
@@ -81,7 +82,7 @@ export const FALLBACK_PRODUCTS: Listing[] = [
     name: "Lacoste personnalisé",
     kind: "lacoste",
     price: null,
-    image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=900&q=80",
+    image: "/images/produit-lacoste-ensetp.jpg",
     description:
       "Polo Lacoste personnalisé avec logo brodé, nom et numéro — parfait pour une promotion, une classe ou une équipe. Tarif selon quantité et complexité de la broderie : demandez votre devis.",
     sizes: SIZES,
@@ -92,7 +93,7 @@ export const FALLBACK_PRODUCTS: Listing[] = [
     name: "Tenues professionnelles sur mesure pour établissements",
     kind: "etablissement",
     price: null,
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=80",
+    image: "/images/produit-combinaison-pro.jpg",
     description:
       "Uniformes complets pour écoles, lycées, centres et établissements de formation professionnelle (type ENSETP, CENSETP, Université de Dakar) — logo brodé, bandes réfléchissantes, répartition de tailles par classe ou promotion.",
     sizes: SIZES,
@@ -104,11 +105,38 @@ export const FALLBACK_PRODUCTS: Listing[] = [
     name: "Autres modèles sur mesure",
     kind: "autre",
     price: null,
-    image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=900&q=80",
+    image: "/images/realisation-groupe-atelier.jpg",
     description:
       "Un besoin spécifique non listé ici ? Décrivez votre projet (type de tenue, quantité, logo, couleurs) et recevez un devis adapté.",
     sizes: SIZES,
     colors: SUGGESTED_COLORS,
+  },
+];
+
+/**
+ * Photos de réalisations (tenues portées, commandes livrées) — pour la
+ * page Galerie, distinctes des photos produit ci-dessus.
+ */
+export const FALLBACK_GALLERY = [
+  {
+    id: "g-1",
+    image: "/images/realisation-tenue-tp-atelier.jpg",
+    caption: "Tenue de TP en situation — atelier mécanique",
+  },
+  {
+    id: "g-2",
+    image: "/images/realisation-survetement-duo.jpg",
+    caption: "Survêtement personnalisé — établissement universitaire",
+  },
+  {
+    id: "g-3",
+    image: "/images/realisation-tenue-sport-duo.jpg",
+    caption: "Tenue de sport personnalisée",
+  },
+  {
+    id: "g-4",
+    image: "/images/realisation-groupe-atelier.jpg",
+    caption: "Commande groupée livrée — centre de formation",
   },
 ];
 
